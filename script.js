@@ -7,17 +7,15 @@ const toggle = document.getElementById("toggle");
 const editButton = document.getElementById("edit-button");
 const deleteButton = document.getElementById("delete-button");
 
-// edit button
 editButton.addEventListener("click", () => {
     console.log("Edit Clicked");
 });
 
-// delete button
 deleteButton.addEventListener("click", () => {
     alert("Delete Clicked");
 });
 
-// checkbox logic
+
 toggle.addEventListener("change", () => {
     if (toggle.checked) {
         cardStatus.textContent = "Done";
@@ -63,3 +61,4 @@ function updateTimeRemaining() {
 }
 
 updateTimeRemaining();
+setInterval(updateTimeRemaining, 30000);

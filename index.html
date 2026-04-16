@@ -19,7 +19,7 @@
                 <h2 data-testid="test-todo-title" id="title">Study for Exams</h2>
 
                 <!-- priority -->
-                <span data-testid="test-todo-priority" class="card-priority">
+                <span data-testid="test-todo-priority" class="card-priority" aria-label="High Priority">
                     High
                 </span>
             </header>
@@ -42,12 +42,12 @@
             </div>
 
             <!-- status -->
-            <span data-testid="test-todo-status" class="card-status" id="status">
+            <span data-testid="test-todo-status" class="card-status" id="status" aria-label="In Progress">
                 In Progress
             </span>
 
             <!-- tags -->
-            <ul data-testid="test-todo-tags" class="card-tasks">
+            <ul data-testid="test-todo-tags" role="list" class="card-tasks">
 
                 <li data-testid="test-todo-tag-work" class="tag">Work</li>
 
@@ -57,7 +57,7 @@
 
             <!-- checkbox -->
             <label class="checkbox">
-                <input type="checkbox" data-testid="test-todo-complete-toggle" id="toggle" />
+                <input type="checkbox" role="checkbox" data-testid="test-todo-complete-toggle" id="toggle" />
                 <span>Mark as complete</span>
             </label>
 
