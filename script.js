@@ -1,4 +1,4 @@
-// ---------------- ELEMENTS ----------------
+
 const title = document.getElementById("title");
 const description = document.getElementById("description");
 
@@ -17,7 +17,7 @@ const expandToggle = document.getElementById("expand-toggle");
 const dots = document.getElementById("dots");
 const more = document.getElementById("more");
 
-// EDIT FORM
+
 const editButton = document.getElementById("edit-button");
 const editForm = document.getElementById("edit-form");
 const editTitle = document.getElementById("edit-title");
@@ -28,11 +28,11 @@ const editDueDate = document.getElementById("edit-due-date");
 
 const saveButton = document.getElementById("save-button");
 const cancelButton = document.getElementById("cancel-button");
+const deleteButton = document.getElementById("delete-button");
 
-// ---------------- STATE ----------------
+
 let timerRunning = true;
 
-// ---------------- PRIORITY ----------------
 function updatePriority(value) {
     priorityContainer.classList.remove("medium", "low");
 
@@ -48,7 +48,7 @@ function updatePriority(value) {
     }
 }
 
-// ---------------- STATUS SYSTEM ----------------
+
 function setStatus(status) {
     statusEl.classList.remove("status-pending", "status-progress", "status-done");
 
@@ -79,11 +79,13 @@ function setStatus(status) {
     toggle.checked = false;
 }
 
-// checkbox controls status
+
 toggle.addEventListener("change", () => {
     setStatus(toggle.checked ? "Done" : "Pending");
 });
-
+deleteButton.addEventListener("click", () => {
+    alert("Delete clicked");
+});
 // ---------------- COLLAPSE ----------------
 expandToggle.addEventListener("click", () => {
     if (dots.style.display === "none") {
@@ -97,7 +99,7 @@ expandToggle.addEventListener("click", () => {
     }
 });
 
-// ---------------- TIME SYSTEM ----------------
+
 function formatTime(diff) {
     const minutes = Math.floor(diff / 60000);
     const hours = Math.floor(minutes / 60);
@@ -127,11 +129,9 @@ function updateTime() {
     timeRemaining.textContent = formatTime(diff);
 }
 
-// update every 30 seconds
 updateTime();
 setInterval(updateTime, 30000);
 
-// ---------------- EDIT MODE ----------------
 editButton.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -169,6 +169,5 @@ cancelButton.addEventListener("click", (e) => {
     editForm.classList.remove("active");
 });
 
-// ---------------- INIT ----------------
 setStatus(statusEl.textContent.trim());
 updateTime();
