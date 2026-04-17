@@ -1,4 +1,3 @@
-
 // ---------------- ELEMENTS ----------------
 const title = document.getElementById("title");
 const description = document.getElementById("description");
@@ -17,6 +16,18 @@ const toggle = document.getElementById("toggle");
 const expandToggle = document.getElementById("expand-toggle");
 const dots = document.getElementById("dots");
 const more = document.getElementById("more");
+
+// EDIT FORM
+const editButton = document.getElementById("edit-button");
+const editForm = document.getElementById("edit-form");
+const editTitle = document.getElementById("edit-title");
+const editDescription = document.getElementById("edit-description");
+const editStatus = document.getElementById("edit-status");
+const editPriority = document.getElementById("edit-priority");
+const editDueDate = document.getElementById("edit-due-date");
+
+const saveButton = document.getElementById("save-button");
+const cancelButton = document.getElementById("cancel-button");
 
 // ---------------- STATE ----------------
 let timerRunning = true;
@@ -73,7 +84,7 @@ toggle.addEventListener("change", () => {
     setStatus(toggle.checked ? "Done" : "Pending");
 });
 
-// ---------------- COLLAPSE (YOUR METHOD) ----------------
+// ---------------- COLLAPSE ----------------
 expandToggle.addEventListener("click", () => {
     if (dots.style.display === "none") {
         dots.style.display = "inline";
@@ -106,7 +117,6 @@ function updateTime() {
 
     overdueIndicator.textContent = "";
 
-    // OVERDUE
     if (diff <= 0) {
         timeRemaining.textContent = `Overdue by ${Math.abs(Math.floor(diff / 60000))} min`;
         overdueIndicator.textContent = "Overdue";
@@ -114,7 +124,6 @@ function updateTime() {
         return;
     }
 
-    // NORMAL
     timeRemaining.textContent = formatTime(diff);
 }
 
@@ -122,5 +131,44 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 30000);
 
+// ---------------- EDIT MODE ----------------
+editButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    editForm.classList.add("active");
+
+    editTitle.value = title.textContent.trim();
+    editDescription.value = description.textContent.trim();
+    editStatus.value = statusEl.textContent.trim();
+    editPriority.value = priority.textContent.trim();
+
+    editDueDate.value = new Date(dueDate.getAttribute("datetime"))
+        .toISOString()
+        .slice(0, 10);
+});
+
+saveButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    title.textContent = editTitle.value;
+    description.textContent = editDescription.value;
+
+    updatePriority(editPriority.value);
+    setStatus(editStatus.value);
+
+    const newDate = new Date(editDueDate.value);
+    dueDate.setAttribute("datetime", newDate.toISOString());
+
+    editForm.classList.remove("active");
+
+    updateTime();
+});
+
+cancelButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    editForm.classList.remove("active");
+});
+
 // ---------------- INIT ----------------
 setStatus(statusEl.textContent.trim());
+updateTime();
