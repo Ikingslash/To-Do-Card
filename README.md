@@ -60,6 +60,6 @@ Any Known Limitations
 * Status is based on string-based inputs 
 
 *Accessibility Notes
-*Use of aria-labels makes it screen-friendly for readers
+* Use of aria-labels makes it screen-friendly for readers
 ---
 
