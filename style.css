@@ -96,8 +96,8 @@ body {
     font-weight: bold;
 }
 
-/* STATUS */
-#status {
+
+.status-bar {
     padding: 5px 10px;
     background: #e8f0ff;
     color: #1a4fd7;
@@ -135,21 +135,25 @@ button {
     transition: 0.2s ease;
 }
 
-#edit-button {
+.edit-button,
+.save-button {
     background: #e7ffe7;
     color: #146c2e;
 }
 
-#edit-button:hover {
+.edit-button:hover,
+.save-button:hover {
     background: #c9f7c9;
 }
 
-#delete-button {
+.delete-button,
+.cancel-button {
     background: #ffe7e7;
     color: #b00020;
 }
 
-#delete-button:hover {
+.delete-button:hover,
+.cancel-button:hover {
     background: #ffc9c9;
 }
 
@@ -173,14 +177,20 @@ button {
     display: flex;
 }
 
-/* SAVE / CANCEL */
-#save-button {
-    background: #1a4fd7;
-    color: white;
+.status-pending {
+    background: #e8f0ff;
+    color: #1a4fd7;
 }
 
-#cancel-button {
-    background: #ddd;
+.status-progress {
+    background: #fff4d6;
+    color: #c47a00;
+}
+
+.status-done {
+    background: #e6f7e6;
+    color: #1e8e3e;
+    text-decoration: line-through;
 }
 
 /* RESPONSIVE */
