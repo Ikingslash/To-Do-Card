@@ -1,112 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: "Google Sans", sans-serif;
-    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
     padding: 20px;
-    display: flex;
-    justify-content: center;
+    background: #f4f6f8;
 }
 
-
-main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-
+/* CARD */
 .card {
     width: 100%;
-    max-width: 480px;
-    background: #ffffff;
-    border-radius: 16px;
+    max-width: 500px;
+    background: white;
     padding: 18px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
-
+/* HEADER */
 .card-title {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
 }
 
-.card-title h2 {
-    font-size: 20px;
-    color: #111;
-}
-
-
+/* PRIORITY */
 .card-priority {
-    background: #ffe5e5;
-    color: #c40000;
+    display: flex;
+    gap: 6px;
+    align-items: center;
     padding: 4px 10px;
     border-radius: 999px;
+    background: #ffe5e5;
+    color: #c40000;
     font-size: 12px;
     font-weight: 600;
 }
 
-
-.card-description {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.4;
+.card-priority.medium {
+    background: #fff4d6;
+    color: #c47a00;
 }
 
+.card-priority.low {
+    background: #e6f7e6;
+    color: #1e8e3e;
+}
 
+/* DESCRIPTION */
+.card-description {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #444;
+}
+
+/* COLLAPSE */
+.collapsed {
+    max-height: 3em;
+    overflow: hidden;
+}
+
+/* EXPAND BUTTON */
+#expand-toggle {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: #1a4fd7;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: left;
+}
+
+/* DATES */
 .dates {
+    font-size: 13px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    font-size: 13px;
-    color: #333;
+    gap: 4px;
 }
 
 #time-remaining {
-    font-weight: 500;
     color: #1f6feb;
+    font-weight: 500;
 }
 
+#overdue-indicator {
+    color: red;
+    font-weight: bold;
+}
 
-.card-status {
-    display: inline-block;
-    width: fit-content;
+/* STATUS */
+#status {
     padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
     background: #e8f0ff;
     color: #1a4fd7;
-}
-
-
-.card-tasks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-}
-
-.tag {
-    background: #f1f1f1;
-    padding: 5px 10px;
-    border-radius: 999px;
+    border-radius: 8px;
+    width: fit-content;
     font-size: 12px;
-    color: #333;
 }
 
-
+/* CHECKBOX */
 .checkbox {
     display: flex;
     align-items: center;
@@ -117,24 +117,17 @@ main {
 
 .checkbox input {
     transform: scale(1.2);
-    cursor: pointer;
 }
 
-.completed {
-    text-decoration: line-through;
-}
-
+/* ACTIONS */
 .card-actions {
     display: flex;
-    justify-content: space-between;
     gap: 10px;
-    margin-top: 6px;
 }
-
 
 button {
     flex: 1;
-    padding: 8px 10px;
+    padding: 8px;
     border: none;
     border-radius: 8px;
     font-size: 13px;
@@ -142,33 +135,64 @@ button {
     transition: 0.2s ease;
 }
 
-.edit-button {
+#edit-button {
     background: #e7ffe7;
     color: #146c2e;
 }
 
-.edit-button:hover {
+#edit-button:hover {
     background: #c9f7c9;
 }
 
-.delete-button {
+#delete-button {
     background: #ffe7e7;
     color: #b00020;
 }
 
-.delete-button:hover {
+#delete-button:hover {
     background: #ffc9c9;
 }
 
+/* EDIT FORM */
+.edit-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
 
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.edit-form.active {
+    display: flex;
+}
+
+/* SAVE / CANCEL */
+#save-button {
+    background: #1a4fd7;
+    color: white;
+}
+
+#cancel-button {
+    background: #ddd;
+}
+
+/* RESPONSIVE */
 @media (max-width: 480px) {
     .card {
         padding: 14px;
-        border-radius: 12px;
     }
 
-    .card-header h2 {
-        font-size: 18px;
+    .card-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 
     .card-actions {
