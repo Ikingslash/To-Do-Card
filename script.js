@@ -128,8 +128,7 @@ function updateTime() {
         const overdueMinutes = Math.abs(Math.floor(diff / 60000));
 
         timeRemaining.textContent = `Overdue by ${overdueMinutes} min`;
-        timeRemaining.classList.add("overdue");
-
+        timeRemaining.style.color = "red"
         overdueIndicator.textContent = "";
         return;
     }
