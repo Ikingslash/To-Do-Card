@@ -61,11 +61,7 @@ body {
     color: #444;
 }
 
-/* COLLAPSE */
-.collapsed {
-    max-height: 3em;
-    overflow: hidden;
-}
+
 
 /* EXPAND BUTTON */
 #expand-toggle {
@@ -76,6 +72,10 @@ body {
     cursor: pointer;
     font-size: 13px;
     text-align: left;
+}
+
+.hidden {
+    display: none;
 }
 
 /* DATES */
@@ -104,6 +104,24 @@ body {
     border-radius: 8px;
     width: fit-content;
     font-size: 12px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0.5rem 0;
+    list-style: none;
+}
+
+.tags li {
+    background: #f1f5f9;
+    color: #334155;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
 /* CHECKBOX */
@@ -190,8 +208,14 @@ button {
 .status-done {
     background: #e6f7e6;
     color: #1e8e3e;
-  
+
 }
+
+.overdue {
+    color: red;
+    font-weight: 600;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 480px) {

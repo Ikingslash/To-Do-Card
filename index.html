@@ -18,26 +18,31 @@
                 <h2 data-testid="test-todo-title" id="title">Study for Exams</h2>
 
                 <div class="card-priority">
-                    <span id="priority-indicator" data-testid = "test-todo-priority-indicator">🔴</span>
+                    <span id="priority-indicator" data-testid="test-todo-priority-indicator">🔴</span>
                     <span data-testid="test-todo-priority" id="priority">High</span>
                 </div>
             </header>
 
-            <!-- DESCRIPTION -->
+            <!-- DESCRIPTION AND COLLAPSIBLE SECTION     -->
             <div data-testid="test-todo-collapsible-section" class="collapsible-section">
                 <p data-testid="test-todo-description" id="description" class="card-description">
                     Revise thoroughly for upcoming math and science exams, including algebraic expressions and molecular
                     <span id="dots">...</span>
-                    <span id="more">
-                        structures.Continue practicing past questions and reviewing weak areas until confident.
+                    <span id="more" class="hidden">
+                        structures and continue practicing past questions and reviewing weak areas until confident.
                     </span>
                 </p>
-
+                <!-- EXPAND BUTTON -->
                 <button data-testid="test-todo-expand-toggle" id="expand-toggle" aria-label="Expand description">
                     Show More
                 </button>
             </div>
 
+            <!-- CARD TAGS -->
+            <ul data-testid="test-todo-tags" class="tags" role="list">
+                <li data-testid="test-todo-tag-study">Study</li>
+                <li data-testid="test-todo-tag-exams">Exams</li>
+            </ul>
             <!-- DATES -->
             <div class="dates">
                 <time data-testid="test-todo-due-date" id="due-date" datetime="2026-03-01T18:00:00Z">
@@ -59,7 +64,7 @@
             </label>
 
             <!-- ACTIONS -->
-            <div class="card-actions" data-testid="test-todo-tags" role="list">
+            <div class="card-actions" role="list">
                 <button data-testid="test-todo-edit-button" id="edit-button" class="edit-button">Edit</button>
                 <button data-testid="test-todo-delete-button" id="delete-button" class="delete-button">Delete</button>
             </div>
@@ -69,7 +74,7 @@
                 <input id="edit-title" placeholder="Title" data-testid="test-todo-edit-title-input">
                 <textarea id="edit-description" data-testid="test-todo-edit-description-input"></textarea>
 
-                <select id="edit-status" data-testid="test-todo-edit-status-control">
+                <select id="edit-status" data-testid="test-todo-status-control">
                     <option>Pending</option>
                     <option>In Progress</option>
                     <option>Done</option>
