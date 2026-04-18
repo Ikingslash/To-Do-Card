@@ -1,4 +1,4 @@
-# Updated Todo Task Card (Stage 1)
+# Updated Task Card (Stage 1)
 
 ## Overview
 This project is a  Task Card UI built as part of Stage 0 (Frontend).
